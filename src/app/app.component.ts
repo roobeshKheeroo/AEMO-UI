@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CodeChallengeComponent } from './components/code-challenge/code-challenge.component';
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [CodeChallengeComponent],  
+  template: `   
+    <app-code-challenge></app-code-challenge>
+  `
 })
 export class AppComponent {
-  title = 'aemo-code-challenge';
+title = "";
+
 }

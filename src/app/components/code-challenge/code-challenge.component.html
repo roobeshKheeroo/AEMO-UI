@@ -1,0 +1,42 @@
+<main class="main">
+    <div class="content">
+      <div class="left-side">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+          <h2>Searching for subtext positions in a main text </h2>
+        
+          <div class="form-group">
+            <label>Text:</label>
+            <input type="text" class="form-control" formControlName="mainText" [(ngModel)]="mainText" placeholder="Type a text here">
+            <div *ngIf="myForm.get('mainText')?.hasError('required') && myForm.get('mainText')?.touched">
+              <small style="color: red;">Main text is required</small>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label>Search for a subtext:</label>
+            <input type="text" class="form-control" formControlName="subText" [(ngModel)]="subText" placeholder="Type subtext to search">
+            <div *ngIf="myForm.get('subText')?.hasError('required') && myForm.get('subText')?.touched">
+              <small style="color: red;">Sub text is required</small>
+            </div>
+          </div>
+        
+          <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Search</button>
+  
+          <div *ngIf="this.searchPerformed">            
+            <h3 class="red-text" *ngIf="characterPositions.length == 0">
+              Subtext "<strong>{{ subText }}</strong>" not found!
+            </h3>         
+            <div class="green-text" *ngIf="characterPositions.length > 0">
+              <h3>Character position(s) where the subtext is found:</h3>
+              <!-- <ul>
+                <li *ngFor="let position of characterPositions">{{ position }}</li>
+              </ul> -->
+              <p>{{ positionAsString }}</p>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </main>
