@@ -1,0 +1,12 @@
+deployment_prefix         = "ui"
+env                       = "Staging"
+is_internal               = false
+cpu                       = 256
+memory                    = 1024
+desired_count             = 1
+rule_priority             = 125
+enable_health_check       = true
+health_check_grace_period = 300
+is_ui_project             = true
+host_header               = "a.b.c"
+custom_path               = ""

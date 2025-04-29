@@ -1,0 +1,12 @@
+deployment_prefix         = "ui"
+env                       = "Production"
+is_internal               = false
+cpu                       = 512
+memory                    = 1024
+desired_count             = 1
+rule_priority             = 125
+enable_health_check       = true
+health_check_grace_period = 300
+is_ui_project             = true
+host_header               = ""
+custom_path               = ""
